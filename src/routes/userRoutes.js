@@ -6,7 +6,7 @@ import validate from '../middleware/Validate.js'
 const router = express.Router()
 
 router.post("/", userController.create)
-router.get("/",validate, userController.getAllUsers)
+router.get("/", userController.getAllUsers)
 router.get("/:id",validate, userController.getUserById)
 router.put("/:id",validate, userController.edit)
 router.delete("/:id",validate, userController.del)
