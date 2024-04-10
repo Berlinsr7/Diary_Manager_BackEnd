@@ -3,7 +3,7 @@ import UserModel from '../model/users.js'
 
 const validate = async(req,res,next)=>{
     try {
-        let token = req?.headers?.authorization?.split(" ")[1]
+        let token = req?.headers?.authorization?.split(" ")[1];
 
         if(token)
         {
