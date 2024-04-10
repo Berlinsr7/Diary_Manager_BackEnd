@@ -26,14 +26,7 @@ const create = async (req, res)=>{
         res.status(500).send({
             message: error.message || 'Internal Server Error'  
         })
-    }
-    // try {
-    //     const user1 = (req.body)
-    //     await userModel.insertMany(user1)
-    //     res.status(200).send({message: "User Created Successfully"})  
-    // } catch (error) {
-    //     res.status(500).send({message: error.message || "Server Error"})
-    // }     
+    }    
 }
 
 const getAllUsers = async (req, res)=>{
@@ -80,7 +73,6 @@ const del = async (req, res)=>{
 
 const login = async(req,res)=>{
     try {
-        //validate if the email and password are valid
         let {email,password} = req.body
         let user = await userModel.findOne({email:email})
 
@@ -88,16 +80,14 @@ const login = async(req,res)=>{
         {
             if(await Auth.hashCompare(password,user.password))
             {
-                // let token = await Auth.createToken({
-                //     email,
-                //     role:user.role,
-                //     id:user._id
-                // })
+                let token = await Auth.createToken({
+                    email,
+                    id:user._id
+                })
 
                 res.status(200).send({
                     message:"Login Successful",
-                    // role:user.role,
-                    // token,
+                    token,
                     name:user.userName,
                     userId: user.userId
                 })

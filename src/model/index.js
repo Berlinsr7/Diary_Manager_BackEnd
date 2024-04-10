@@ -10,6 +10,6 @@ const main = async ()=>{
     console.log('Db connection established')
 }
 
-main().catch(err => console.log(err));
+main().catch(err => console.log(err))
 
 export default mongoose
