@@ -89,7 +89,7 @@ const login = async(req,res)=>{
                     message:"Login Successful",
                     token,
                     name:user.userName,
-                    userId: user.userId
+                    userId: user._id
                 })
             }
             else
