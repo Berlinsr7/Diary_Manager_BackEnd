@@ -89,13 +89,13 @@ const login = async(req,res)=>{
                     message:"Login Successful",
                     token,
                     name:user.userName,
-                    userId: user._id
+                    userId: user.userId
                 })
             }
             else
             {
                 res.status(400).send({
-                    message:"Incorrect Password"
+                    message:"Incorrect Password!"
                 })
             }
         }
